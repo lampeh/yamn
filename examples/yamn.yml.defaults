@@ -1,0 +1,68 @@
+general:
+    loglevel: warn
+    logtofile: false
+    logtojournal: false
+
+files:
+    pubring: pubring.mix
+    mlist2: mlist2.txt
+    pubkey: key.txt
+    secring: secring.mix
+    adminkey: adminkey.txt
+    help: help.txt
+    pooldir: pool
+    maildir: Maildir
+    idlog: idlog
+    chunkdb: chunkdb
+    logfile: yamn.log
+
+urls:
+    fetch: true
+    pubring: http://www.mixmin.net/yamn/pubring.mix
+    mlist2: http://www.mixmin.net/yamn/mlist2.txt
+
+mail:
+    sendmail: false
+    pipe: ""
+    outfile: false
+    usetls: true
+    smtp_relay: fleegle.mixmin.net
+    smtp_port: 587
+    mx_relay: true
+    onion_relay: false
+    sender: ""
+    username: ""
+    password: ""
+    outbound_name: Anonymous Remailer
+    outbound_addy: remailer@domain.invalid
+    custom_from: false
+
+stats:
+    minlat: 2
+    maxlat: 60
+    minrel: 98
+    rel_final: 99
+    chain: '*,*,*'
+    num_copies: 1
+    distance: 2
+    stale_hours: 24
+    use_expired: false
+
+pool:
+    size: 5
+    rate: 65
+    min_send: 5
+    loop: 300
+    max_age: 28
+
+remailer:
+    name: anon
+    address: mix@nowhere.invalid
+    exit: false
+    max_size: 12
+    id_expire: 14
+    chunk_expire: 60
+    max_age: 14
+    key_life: 14
+    key_grace: 28
+    daemon: false

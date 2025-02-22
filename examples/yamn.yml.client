@@ -1,0 +1,6 @@
+# This file provides a minimal client configuration.
+
+mail:
+    smtp_relay: your.mail.server
+    username: user@your.mail.server
+    password: password
