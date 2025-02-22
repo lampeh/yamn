@@ -9,21 +9,14 @@ and MD5, YAMN will use AES, NaCl Box and Blake2.
 
 * Deterministic header padding to protect against tagging attacks
 
-* Others TBA
-
-Installation from source:-
-go get github.com/crooks/yamn
-go get code.google.com/p/go.crypto/nacl/box
-go get github.com/syndtr/goleveldb
-go get github.com/luksen/maildir
-cd ~/go/src/github.com/crooks/yamn
+Installation from source:
 go build
 
 Post-install configuration:-
 Create a dir for yamn.  (mkdir yamn)
 Copy yamn binary (yamn.exe on Windows) to the above dir
-Copy yamn.cfg.sample to same dir and rename to yamn.cfg
-Modify yamn.cfg to meet your requirements
+Copy yamn.yml.sample to same dir and rename to yamn.yml
+Modify yamn.yml to meet your requirements
 
 Examples:-
 
