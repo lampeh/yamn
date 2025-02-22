@@ -145,7 +145,7 @@ func binomialMix() (batch []string) {
 	poolSize := len(poolFiles)
 	batchSize := getBatchSize(poolSize)
 	if batchSize == 0 {
-		log.Tracef("Binomial Mix Pool: Size=%d", poolSize)
+		log.Infof("Binomial Mix Pool: Size=%d", poolSize)
 		// If the batch is empty, don't bother to process it.
 		return
 	}
@@ -160,7 +160,7 @@ func binomialMix() (batch []string) {
 			batch = append(batch, s)
 		}
 	}
-	log.Tracef(
+	log.Infof(
 		"Binomial Mix Pool: Size=%d, Batch=%d, Prob=%d/255, Sending=%d",
 		poolSize,
 		batchSize,
