@@ -283,7 +283,7 @@ func processInpool(prefix string, secret *keymgr.Secring) {
 		}
 		err = decodeMsg(msg, secret)
 		if err != nil {
-			log.Warnf("Decoding error: %s", err)
+			log.Tracef("Decoding error: %s", err)
 		}
 		poolDelete(f)
 		processed++
