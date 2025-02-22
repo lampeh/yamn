@@ -3,7 +3,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -369,7 +368,7 @@ func decodeV2(d *decMessage, slotDataBytes []byte) (err error) {
 	slotData := decodeSlotData(slotDataBytes)
 	// Test uniqueness of packet ID
 	if !IDDb.Unique(slotData.getPacketID()) {
-		err = errors.New("packet ID collision")
+		log.Trace("Discarding duplicate message (packet ID collision)")
 		return
 	}
 	if !d.testAntiTag(slotData.getTagHash()) {
