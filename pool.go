@@ -254,7 +254,7 @@ func processMail(secret *keymgr.Secring) (err error) {
 		}
 		err = decodeMsg(msg, secret)
 		if err != nil {
-			log.Info(err)
+			log.Tracef("Decoding error: %s", err)
 		}
 		err = dir.Purge(key)
 		if err != nil {
@@ -283,7 +283,7 @@ func processInpool(prefix string, secret *keymgr.Secring) {
 		}
 		err = decodeMsg(msg, secret)
 		if err != nil {
-			log.Warn(err)
+			log.Warnf("Decoding error: %s", err)
 		}
 		poolDelete(f)
 		processed++
