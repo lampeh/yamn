@@ -56,7 +56,7 @@ func main() {
 	}
 
 	// Set up logging
-	loglevel, err := log.Atoi(cfg.General.Loglevel)
+	loglevel, err := parseLogLevel(cfg.General.Loglevel)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s: Unknown loglevel", cfg.General.Loglevel)
 		os.Exit(1)
