@@ -9,9 +9,9 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/luksen/maildir v0.0.0-20210101204218-7ed7afdce6bf
 	github.com/syndtr/goleveldb v1.0.0
-	golang.org/x/crypto v0.0.0-20220128200615-198e4374d7ed
 	golang.org/x/sys v0.1.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+	golang.org/x/crypto v0.31.0
+	gopkg.in/yaml.v3 v3.0.0
 )
 
 replace github.com/Masterminds/log-go v0.4.0 => github.com/crooks/log-go v0.4.1
