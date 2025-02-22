@@ -401,7 +401,7 @@ func decodeV2(d *decMessage, slotDataBytes []byte) (err error) {
 		*/
 		if inter.getNextHop() == cfg.Remailer.Address {
 			log.Info(
-				"Message loops back to us.",
+				"Message loops back to us. ",
 				"Storing in pool instead of sending it.")
 			outfileName := randPoolFilename("i")
 			err = ioutil.WriteFile(
