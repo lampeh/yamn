@@ -107,7 +107,6 @@ type Flags struct {
 	Dummy    bool
 	NoDummy  bool
 	Version  bool
-	MemInfo  bool
 }
 
 // GetCfg parses the command line flags and config file if they haven't been previously parsed.
@@ -192,8 +191,6 @@ func ParseFlags() *Flags {
 	flag.BoolVar(&f.Version, "V", false, "Print version string")
 	// Print debug info
 	flag.BoolVar(&f.Debug, "debug", false, "Print detailed config")
-	// Memory usage
-	flag.BoolVar(&f.MemInfo, "meminfo", false, "Print memory info")
 	// Refresh remailer stats files
 	flag.BoolVar(&f.Refresh, "refresh", false, "Refresh remailer stats files")
 
