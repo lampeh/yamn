@@ -527,8 +527,8 @@ func (s *slotIntermediate) setPartialIV(partialIV []byte) {
 	copy(s.aesIV12, partialIV)
 }
 
-//seqIV constructs a complete 16 Byte IV from a partial 12 Byte IV + a 4 Byte
-//counter.
+// seqIV constructs a complete 16 Byte IV from a partial 12 Byte IV + a 4 Byte
+// counter.
 func seqIV(partialIV []byte, slot int) (iv []byte) {
 	err := lenCheck(len(partialIV), 12)
 	if err != nil {
@@ -552,7 +552,7 @@ func (s *slotIntermediate) setNextHop(nh string) {
 	s.nextHop = []byte(nh + strings.Repeat("\x00", 52-len(nh)))
 }
 
-//getNextHop returns the next hop remailer name after stripping any padding.
+// getNextHop returns the next hop remailer name after stripping any padding.
 func (s *slotIntermediate) getNextHop() string {
 	return strings.TrimRight(string(s.nextHop), "\x00")
 }

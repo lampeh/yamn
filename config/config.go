@@ -39,20 +39,20 @@ type Config struct {
 		Mlist2  string `yaml:"mlist2"`
 	} `yaml:"urls"`
 	Mail struct {
-		Sendmail     bool   `yaml:"sendmail"`
-		Pipe         string `yaml:"pipe"`
-		Outfile      bool   `yaml:"outfile"`
-		UseTLS       bool   `yaml:"usetls"`
-		SMTPRelay    string `yaml:"smtp_relay"`
-		SMTPPort     int    `yaml:"smtp_port"`
-		MXRelay      bool   `yaml:"mx_relay"`
-		OnionRelay   bool   `yaml:"onion_relay"`
-		Sender       string `yaml:"sender"`
-		Username     string `yaml:"username"`
-		Password     string `yaml:"password"`
-		OutboundName string `yaml:"outbound_name"`
-		OutboundAddy string `yaml:"outbound_addy"`
-		CustomFrom   bool   `yaml:"custom_from"`
+		Sendmail      bool   `yaml:"sendmail"`
+		Pipe          string `yaml:"pipe"`
+		Outfile       bool   `yaml:"outfile"`
+		UseTLS        bool   `yaml:"usetls"`
+		SMTPRelay     string `yaml:"smtp_relay"`
+		SMTPPort      int    `yaml:"smtp_port"`
+		MXRelay       bool   `yaml:"mx_relay"`
+		OnionRelay    bool   `yaml:"onion_relay"`
+		Sender        string `yaml:"sender"`
+		Username      string `yaml:"username"`
+		Password      string `yaml:"password"`
+		OutboundName  string `yaml:"outbound_name"`
+		OutboundAddy  string `yaml:"outbound_addy"`
+		CustomFrom    bool   `yaml:"custom_from"`
 		MessageDomain string `yaml:"message_domain"`
 	} `yaml:"mail"`
 	Stats struct {
@@ -111,7 +111,7 @@ type Flags struct {
 
 // GetCfg parses the command line flags and config file if they haven't been previously parsed.
 // This should be an init function but tests fail if flags are parsed in init.
-//  See: https://github.com/golang/go/issues/46869
+// See: https://github.com/golang/go/issues/46869
 func GetCfg() (*Flags, *Config) {
 	var err error
 	f := ParseFlags()
