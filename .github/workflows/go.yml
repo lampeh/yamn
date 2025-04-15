@@ -29,7 +29,7 @@ jobs:
         run: gofmt -d -s .
   
       - name: govulncheck
-      - run: |
+        run: |
           go install golang.org/x/vuln/cmd/govulncheck@latest
           govulncheck -version -test ./...
 
