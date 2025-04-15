@@ -15,8 +15,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: 'stable'
-          check-latest: true
+          go-version-file: 'go.mod'
       - run: go version
 
       - name: go mod
@@ -34,13 +33,19 @@ jobs:
           govulncheck -version -test ./...
 
       - name: go build
-        run: go build
-  
+        run: |
+          GOOS=linux GOARCH=arm go build -o yamn-linux-arm
+          GOOS=linux GOARCH=amd64 go build -o yamn-linux-amd64
+          GOOS=windows GOARCH=amd64 go build -o yamn-windows-amd64.exe
+
       - name: go test
         run: go test -v -race -shuffle=on
 
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
-          name: yamn-go-${{ matrix.go-version }}
-          path: yamn
+          name: yamn
+          path: |
+            yamn-linux-arm
+            yamn-linux-amd64
+            yamn-windows-amd64.exe
