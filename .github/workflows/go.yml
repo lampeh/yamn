@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'go.mod'
-      - run: go version
 
       - name: go mod
         run: |
@@ -49,3 +48,19 @@ jobs:
             yamn-linux-arm
             yamn-linux-amd64
             yamn-windows-amd64.exe
+
+      - name: Copy LICENSE
+        run: |
+          cp $(go env GOMODCACHE)/github.com/crooks/jlog@*/LICENSE LICENSE-crooks-jlog
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        # TODO:  
+        with:
+          files: |
+            yamn-linux-arm
+            yamn-linux-amd64
+            yamn-windows-amd64.exe
+            LICENSE
+            LICENSE-crooks-jlog
