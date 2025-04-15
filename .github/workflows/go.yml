@@ -1,0 +1,45 @@
+name: Go
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+          check-latest: true
+      - run: go version
+
+      - name: go mod
+        run: |
+          go mod tidy && git diff --exit-code
+          go mod download
+          go mod verify
+
+      - name: gofmt
+        run: gofmt -d -s .
+  
+      - name: govulncheck
+      - run: |
+          go install golang.org/x/vuln/cmd/govulncheck@latest
+          govulncheck -version -test ./...
+
+      - name: go build
+        run: go build
+  
+      - name: go test
+        run: go test -v -race -shuffle=on
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamn-go-${{ matrix.go-version }}
+          path: yamn
