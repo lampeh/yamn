@@ -47,10 +47,6 @@ jobs:
             yamn-linux-amd64
             yamn-windows-amd64.exe
 
-      - name: Copy LICENSE
-        run: |
-          cp $(go env GOMODCACHE)/github.com/crooks/jlog@*/LICENSE LICENSE-crooks-jlog
-
       - name: Upload release
         uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'

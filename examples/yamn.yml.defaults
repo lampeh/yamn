@@ -6,8 +6,6 @@ general:
     loglevel: warn
     # Log to logfile instead of stderr
     logtofile: false
-    # Log to systemd journal
-    logtojournal: false
 
 files:
     # Path to the public keyring file
