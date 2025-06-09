@@ -7,7 +7,7 @@ require (
 	github.com/dchest/blake2s v1.0.0
 	github.com/luksen/maildir v0.0.0-20210101204218-7ed7afdce6bf
 	github.com/syndtr/goleveldb v1.0.0
-	golang.org/x/crypto v0.38.0
+	golang.org/x/crypto v0.39.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
